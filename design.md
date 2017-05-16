@@ -25,6 +25,7 @@ There are two types of users: customer and shopkeeper. A customer can be unauthe
 * payment is stubbed to a simple click to pay button
 * no v.a.t.
 * no customer reviews
+* a user logged in with a different identity provider is not always the same user
 
 The customer can
 * browse the catalog
@@ -58,9 +59,11 @@ The shopkeeper can
 * orders:hasMany(order)
 
 ### user
-* id:guid
+* uid:guid
+* displayName: string
 * email:string
-* password:string
+* emailVerified:boolean
+* isAnonymous:boolean
 
 ### address
 * id:guid
