@@ -22,6 +22,10 @@ I will translate the task into Gherkin files using the following assumptions and
 
 There are two types of users: customer and shopkeeper. A customer can be unauthenticated for browsing, but must register for ordering and viewing order history. The shopkeeper must be authenticated.
 
+* payment is stubbed to a simple click to pay button
+* no v.a.t.
+* no customer reviews
+
 The customer can
 * browse the catalog
 * search the catalog
@@ -32,10 +36,7 @@ The customer can
 * place an order with the items in the basket
 * use a default restired delivery address
 * modify the delivery address as need an click to save as default
-* payment is stubbed to a simple click to pay button
 * view a history of orders
-* place a product review of ordered items
-* read product reviews by other customers
 
 The shopkeeper can
 * add/remove/publish/unpublish products to the catalog
@@ -46,12 +47,10 @@ The shopkeeper can
 * set an order to cancelled 
 * view order / sales stats
 * block a customer
-* remove a review
-* publish a customer review
 
 ## domain
 
-###shopkeeper
+### shopkeeper
 
 
 customer
@@ -72,62 +71,35 @@ review
 
 
 
+## pages and routes
 
+* The application keeps no state except for the user id and abilities.
+* The available actions on a page and access to a page is controlled through the ability.
+* Views update automatically as data changes using firedb.
 
-## routes
-
-all actions that need to be persisted have a route
-all views of repository state have a route, update automatically
-
-###customer views
-
-1. / promotions offer search and browse controls
-1. /collections/:collection-id
-1. /colections/;collection-id/products/:product-id
-1. /basket
-1. /account
-1. /orders
-1. /orders/:order-id
-1. /reviews
-1. /reviews/:review-id
-1. /payment-received
-
-###customer actions
-
-1. /login
-1. /place-in-basket/:product-id
-1. /search/:query
-1. /place-order
-1. /change-account
-1. /place-review/:product-id
-1. /remove-review/:review-id
-
-
-###keep view
-
-1. /keep/search/:query
-1. /keep/orders
-1. /keep/orders/:order-id
-1. /keep/collections/:collection-id
-1. /keep/collections/:collection-id/products/:product-id
-1. /keep/collections/:collection-id/products/:product-id
-1. /keep/customers
-1. /keep/customers/:customer-id
-1. /keep/reviews
-
-###keep actions
-
-1. /login
-1. /keep/process-order/:order-id
-1. /keep/add-collection
-1. /keep/change-collection/
-1. /keep/remove-collection
-1. /keep/add-product
-1. /keep/remove-product
-1. /keep/change-product
-1. /keep/add-product-item?product=:product-id
-1. /keep/remove-product-item?product=:product-id
-1. /keep/authorise-review
-1. /keep/block-review
-
-
+1. there are two home pages 
+    1. / with the promotions, hero block and the collections
+    1. /keep with the urgent orders, low inventory, sales stats
+1. there are three master detail pages
+    1. /orders, /orders/:order-id
+    1. /customers, /customer/:customer-id
+    1. /collections/:collection-id
+1. the special basket page /basket
+1. the special search page /search/:query
+1. there are sixteen action pages
+    1. /login
+    1. /place-in-basket/:product-id
+    1. /place-order
+    1. /change-account
+    1. /process-order/:order-id
+    1. /add-collection
+    1. /change-collection/
+    1. /remove-collection
+    1. /add-product
+    1. /remove-product
+    1. /change-product
+    1. /add-product-item/product-item-id
+    1. /remove-product-item/product-item-id
+    1. /block-customer
+    1. /add-shopkeeper
+    1. /block-shopkeeper
