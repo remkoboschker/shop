@@ -69,7 +69,7 @@ The shopkeeper can
 
 
 ### shopkeeper:user
-isKeep:boolean
+* isKeep:boolean
 
 ### customer:user
 * phoneNumber:string
@@ -99,6 +99,7 @@ isKeep:boolean
 * product:belongsTo(product)
 * order:belongsTo(order)
 * basket:belongsTo(basket)
+* priceWhenBought:number
 
 ### order
 * id:guid
