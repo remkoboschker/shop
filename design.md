@@ -48,28 +48,71 @@ The shopkeeper can
 * view order / sales stats
 * block a customer
 
-## domain
+## objects
 
-### shopkeeper
+### shop
+* shopkeepers:hasMany(shopkeeper)
+* inventory:hasMany(productItem)
+* customers:hasMany(customer)
+* productLines:hasMany(productLine)
+* orders:hasMany(order)
 
+### user
+* id:guid
+* email:string
+* password:string
 
-customer
-
-
-product
-
-product-item
-
-
-order
-
-
-basket
-
-
-review
+### address
+* id:guid
+* addressLine1:string
+* addressLine2:string
 
 
+### shopkeeper:user
+isKeep:boolean
+
+### customer:user
+* phoneNumber:string
+* basket:hasOne(basket)
+* orders:hasMany(order)
+* defaultDeliveryAddress:hasOne(address)
+
+### productLine
+* id:guid
+* name:string
+* description:string
+* imageUrl:url
+* products:hasMany(product)
+
+### product
+* id:guid
+* name:string
+* description:string
+* imageUrl:url
+* inventorySize:number
+* unitPrice:number
+* discount:number
+* isNew:boolean
+
+### productItem
+* id:guid
+* product:belongsTo(product)
+* order:belongsTo(order)
+* basket:belongsTo(basket)
+
+### order
+* id:guid
+* productItems:hasMany(productItem)
+* customer:hasOne(customer)
+* deliveryAddress:hasOne(address)
+* orderDate:date
+* processedDate:date
+* deliveredDate:date
+* totalPrice:number
+
+### basket
+* id:guid
+* productItems:hasMany(productItem)
 
 ## pages and routes
 
@@ -78,23 +121,25 @@ review
 * Views update automatically as data changes using firedb.
 
 1. there are two home pages 
-    1. / with the promotions, hero block and the collections
+    1. / with the promotions, hero block and the product-lines
     1. /keep with the urgent orders, low inventory, sales stats
 1. there are three master detail pages
     1. /orders, /orders/:order-id
     1. /customers, /customer/:customer-id
-    1. /collections/:collection-id
+    1. /product-lines/:product-line-id
 1. the special basket page /basket
 1. the special search page /search/:query
-1. there are sixteen action pages
+1. there are eighteen action pages
     1. /login
     1. /place-in-basket/:product-id
+    1. /remove-from-basket/:product-time-id
+    1. /clear-basket
     1. /place-order
     1. /change-account
     1. /process-order/:order-id
-    1. /add-collection
-    1. /change-collection/
-    1. /remove-collection
+    1. /add-product-line
+    1. /change-product-line/
+    1. /remove-product-line
     1. /add-product
     1. /remove-product
     1. /change-product
