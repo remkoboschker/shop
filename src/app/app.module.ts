@@ -7,11 +7,21 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { environment } from "environments/environment";
-import { MdToolbarModule } from '@angular/material';
+import { MdToolbarModule, MdButtonModule } from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { KeepHomepageComponent } from './keep-homepage/keep-homepage.component';
+import { OrdersComponent } from './orders/orders.component';
+import { AuthService } from './auth.service';
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomepageComponent,
+    KeepHomepageComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +31,8 @@ import { MdToolbarModule } from '@angular/material';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     MdToolbarModule,
+    MdButtonModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]
