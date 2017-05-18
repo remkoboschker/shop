@@ -1,2 +1,27 @@
-<md-toolbar color="primary">Gifkikker Merchandise</md-toolbar>
+<md-toolbar color="primary">
+  
+  <span>Gifkikker Merchandise</span>
+  <span fxFlex="grow"></span>
+  <span>
+    <button md-icon-button [mdMenuTriggerFor]="accountMenu">
+      <md-icon [color]="(user | async) ? 'accent' : ''">account_box</md-icon>
+    </button>
+    <md-menu #accountMenu="mdMenu" [overlapTrigger]="false">
+      <div *ngIf="user | async">
+        <h4 class="horizontal-padding">{{(user | async)?.displayName}}</h4>
+        <a routerLink="/orders" md-menu-item>order history</a>
+        <button (click)="logout()" md-menu-item>logout</button>
+      </div>
+      <a *ngIf="!(user | async)" routerLink="/login" md-menu-item>login</a>
+    </md-menu>
+  </span>
+</md-toolbar>
 <router-outlet></router-outlet>
+<md-toolbar color="accent">
+  <span fxFlex></span>
+  <span>
+    <button md-button>about</button>
+    <button md-button>terms and conditions</button>
+    <button md-button>contact</button>
+  </span>
+</md-toolbar>

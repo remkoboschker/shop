@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
-  constructor(db: AngularFireDatabase, auth: AngularFireAuth, private router: Router) {
+  constructor(db: AngularFireDatabase, public auth: AngularFireAuth, private router: Router) {
     this.items = db.list('/items');
     this.user = auth.authState;
       this.user.subscribe(auth => { 
@@ -22,5 +22,8 @@ export class AppComponent {
         this.router.navigateByUrl('/login');
       }
     })
+  }
+  logout(){
+    this.auth.auth.signOut();
   }
 }

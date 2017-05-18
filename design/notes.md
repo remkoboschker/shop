@@ -5,3 +5,10 @@ First I do a sketchy model to orient and write down ideas, then I switch to work
 Choose to separate actions into separate urls to make command query concerns clear. Also it leads to an obvious interactions flow for small screens.
 
 I did not manage to get Yadda or Cucumber to work with Protractor. Got close, but time was too short.
+
+Look into animations
+
+And angularfire2 caching
+
+
+close firebase access and validate

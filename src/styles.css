@@ -1,2 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.small-label {
+    font-size: 0.7em;
+    text-align: right;
+    vertical-align: baseline;
+}
+
+.horizontal-padding {
+    padding: 0 16px;
+}
+
+.padding {
+    padding: 16px 16px;
+}
