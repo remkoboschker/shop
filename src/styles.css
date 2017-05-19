@@ -24,6 +24,11 @@
     width: 33vw;
 }
 
+.mat-card-title {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+}
+
 .drop-zone { 
     border: dotted 3px lightgray; 
     width: calc(100% - 2em) ;
