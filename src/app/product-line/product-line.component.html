@@ -8,7 +8,8 @@
      {{data.description}}
     </p>
   </md-card-content>
-  <md-card-actions fxLayoutAlign="end">
+  <md-card-actions fxLayoutAlign="space-around">
+    <a [routerLink]="[data.name, 'add-product']" md-button>add products</a>
     <button md-button>verwijder</button>
     <button md-button>aanpassen</button>
   </md-card-actions>

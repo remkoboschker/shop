@@ -4,7 +4,7 @@
 <div fxLayout="row">
   <router-outlet></router-outlet>
 </div>
-<div fxLayout="row" fxLayoutWrap>
+<div fxLayout="row" fxLayoutAling="start" fxLayoutWrap>
   <app-product-line fxFlex *ngFor="let productLine of (productLines | async)" [data]="productLine"></app-product-line>
 </div>
 
