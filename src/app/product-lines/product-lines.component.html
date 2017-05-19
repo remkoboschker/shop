@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="end" class="padding">
+  <a routerLink="add-product-line" md-raised-button>add product line</a>
+</div>
+<div fxLayout="row">
+  <router-outlet></router-outlet>
+</div>
+<div fxLayout="row" fxLayoutWrap>
+  <app-product-line fxFlex *ngFor="let productLine of (productLines | async)" [data]="productLine"></app-product-line>
+</div>
+

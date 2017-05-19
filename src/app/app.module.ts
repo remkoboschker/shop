@@ -13,22 +13,36 @@ import {
   MdButtonModule,
   MdIconModule,
   MdMenuModule,
+  MdInputModule,
+  MdDialogModule,
+  MdCardModule
 } from '@angular/material';
 import { LoginComponent } from './login/login.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { KeepHomepageComponent } from './keep-homepage/keep-homepage.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 import { routes } from './app.routes';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProductLinesComponent } from './product-lines/product-lines.component';
+import { ProductLineComponent } from './product-line/product-line.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.component';
+import { ProductItemComponent } from './product-item/product-item.component';
+import { OrderComponent } from './order/order.component';
+import { EditProductLineComponent } from './edit-product-line/edit-product-line.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent,
-    KeepHomepageComponent,
-    OrdersComponent
+    OrdersComponent,
+    ProductLinesComponent,
+    ProductLineComponent,
+    ProductsComponent,
+    ProductComponent,
+    ProductItemComponent,
+    OrderComponent,
+    EditProductLineComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +56,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MdButtonModule,
     MdIconModule,
     MdMenuModule,
+    MdDialogModule,
+    MdInputModule,
     FlexLayoutModule,
+    MdCardModule,
     routes
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

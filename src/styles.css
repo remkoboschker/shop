@@ -15,3 +15,25 @@
 .padding {
     padding: 16px 16px;
 }
+
+.full-width {
+    width: 100%;
+}
+
+.mat-card-image {
+    width: 25vw;
+    height: 25vw;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.drop-zone { 
+    border: dotted 3px lightgray; 
+    width: calc(100% - 2em) ;
+    min-height: 100px;
+    margin: 1em;
+    text-align: center;
+}
+.drag-over { 
+    border: dotted 3px red; 
+}

@@ -4,15 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { OrdersComponent } from './orders/orders.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { KeepHomepageComponent } from './keep-homepage/keep-homepage.component';
-import { AuthService } from './auth.service';
+import { ProductLinesComponent } from './product-lines/product-lines.component';
+import { EditProductLineComponent } from './edit-product-line/edit-product-line.component'
+import { AuthGuardService } from './auth-guard.service';
 
 export const router: Routes = [
-    { path: '', component: HomepageComponent },
+    { path: '', redirectTo: 'product-lines', pathMatch: 'full' },
+    { path: 'product-lines', component: ProductLinesComponent, children: [
+        { path: 'add-product-line', component: EditProductLineComponent, canActivate: [AuthGuardService] }
+    ] },
     { path: 'login', component: LoginComponent },
-    { path: 'keep', component: KeepHomepageComponent, canActivate: [AuthService] },
-    { path: 'orders', component: OrdersComponent, canActivate: [AuthService] }
+    { path: 'orders', component: OrdersComponent, canActivate: [AuthGuardService] },
+    
 
 ]
 

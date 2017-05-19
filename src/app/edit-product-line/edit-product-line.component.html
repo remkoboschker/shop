@@ -1,0 +1,34 @@
+<form fxLayout="row">
+  <div fxLayout="column" class="padding" fxFlex>
+    <md-input-container>
+      <input mdInput placeholder="Name" [(ngModel)]="productLine.name" name="name">
+    </md-input-container>
+    <md-input-container>
+      <textarea mdInput placeholder="description" [(ngModel)]="productLine.description" name="description"></textarea>
+    </md-input-container>
+  </div>
+  <div fxLayout="column"  class="padding" fxFlex>
+
+    <img *ngIf="productLine.imageUrl" [src]="productLine.imageUrl" class="full-width padding">
+    <div 
+      *ngIf="!productLine.imageUrl"
+      (drop)="onDrop($event)"
+      (dragover)="allowDrop($event)"
+      (dragenter)="allowDrop($event)"
+      (dragout)="onDragOut($event)"
+      class="drop-zone"
+      [class.drag-over]="isOver"
+    >
+      drop your image here
+    </div>
+    <div fxLayout="row">
+      <input name="file" type="file" (change)="upload($event)">
+      <button (click)="delete(productLine.imageUrl)" type="button">remove</button>
+    </div>
+    
+  </div>
+</form>
+<div fxLayout="row" fxLayoutAlign="end" class="padding">
+  <a routerLink="/product-lines" md-raised-button>cancel</a>
+  <button md-raised-button (click)="save()">add poduct line</button>
+</div>

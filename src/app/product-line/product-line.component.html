@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>{{data.name}}</md-card-title>
+  </md-card-header>
+  <img md-card-image [src]="data.imageUrl">
+  <md-card-content>
+    <p>
+     {{data.description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>verwijder</button>
+    <button md-button>aanpassen</button>
+  </md-card-actions>
+</md-card>

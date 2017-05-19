@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KeepHomepageComponent } from './keep-homepage.component';
+import { ProductItemComponent } from './product-item.component';
 
-describe('KeepHomepageComponent', () => {
-  let component: KeepHomepageComponent;
-  let fixture: ComponentFixture<KeepHomepageComponent>;
+describe('ProductItemComponent', () => {
+  let component: ProductItemComponent;
+  let fixture: ComponentFixture<ProductItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KeepHomepageComponent ]
+      declarations: [ ProductItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KeepHomepageComponent);
+    fixture = TestBed.createComponent(ProductItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

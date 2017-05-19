@@ -12,3 +12,10 @@ And angularfire2 caching
 
 
 close firebase access and validate
+
+define typescript models
+
+
+needs to implement role-based
+
+drop event data transfer empty

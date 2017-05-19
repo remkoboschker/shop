@@ -81,11 +81,10 @@ The shopkeeper can
 * defaultDeliveryAddress:hasOne(address)
 
 ### productLine
-* id:guid
 * name:string
 * description:string
 * imageUrl:url
-* products:hasMany(product)
+<!--* products:hasMany(product)-->
 
 ### product
 * id:guid
