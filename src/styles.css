@@ -20,11 +20,8 @@
     width: 100%;
 }
 
-.mat-card-image {
-    width: 25vw;
-    height: 25vw;
-    min-width: 100px;
-    min-height: 100px;
+.mat-card {
+    width: 33vw;
 }
 
 .drop-zone { 
